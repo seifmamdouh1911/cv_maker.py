@@ -1,10 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Your CV</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #2F80ED, #56CCF2); /* Updated background color */
+            color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ffffff;
+            margin-top: 40px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Form Container */
+        .form-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 40px;
+            background: #1d1d1d;
+            border-radius: 12px;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+            border: 1px solid #333;
+            box-sizing: border-box;
+        }
+
+        /* Form Section Headers */
+        .section-header {
+            font-size: 24px;
+            color: #00D4FF;
+            border-bottom: 3px solid #00D4FF;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            font-weight: bold;
+        }
+
+        /* Form Element Styles */
+        label {
+            font-weight: bold;
+            color: #ccc;
+            margin-top: 10px;
+            display: block;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 20px;
+            border: 2px solid #444;
+            border-radius: 8px;
+            font-size: 16px;
+            color: #f5f5f5;
+            background: #2c2c2c;
+            transition: border-color 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        input[type="file"] {
+            padding: 8px;
+            border: 2px solid #00D4FF;
+            background: #1e1e1e;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #00D4FF;
+            outline: none;
+        }
+
+        textarea {
+            height: 140px;
+            resize: vertical;
+        }
+
+        /* Submit Button */
+        button {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #00D4FF, #00BFFF);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #00A3E0, #00B3E6);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 20px;
+                margin: 20px;
+                box-shadow: none;
+            }
+
+            h1 {
+                font-size: 2em;
+                margin-top: 20px;
+            }
+
+            textarea {
+                height: 120px;
+            }
+        }
+    </style>
 </head>
 <body>
-$END$
+    <h1>Create Your CV</h1>
+
+    <div class="form-container">
+        <form method="POST" action="/" enctype="multipart/form-data">
+            <!-- Personal Information Section -->
+            <div class="section-header">Personal Information</div>
+            <div class="form-row">
+                <div>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div>
+                    <label for="phone">Phone:</label>
+                    <input type="text" id="phone" name="phone" required>
+                </div>
+                <div>
+                    <label for="photo">Upload Photo:</label>
+                    <input type="file" id="photo" name="photo" accept="image/jpeg, image/png">
+                </div>
+            </div>
+
+            <!-- Summary Section -->
+            <div class="section-header">Summary</div>
+            <textarea id="summary" name="summary" placeholder="Write a brief summary about yourself..."></textarea>
+
+            <!-- Skills Section -->
+            <div class="section-header">Skills</div>
+            <textarea id="skills" name="skills" placeholder="List your skills here..."></textarea>
+
+            <!-- Experience Section -->
+            <div class="section-header">Experience</div>
+            <textarea id="experience" name="experience" placeholder="Describe your work experience..."></textarea>
+
+            <!-- Education Section -->
+            <div class="section-header">Education</div>
+            <textarea id="education" name="education" placeholder="List your educational qualifications..."></textarea>
+
+            <!-- Projects Section -->
+            <div class="section-header">Projects</div>
+            <textarea id="projects" name="projects" placeholder="Describe your projects..."></textarea>
+
+            <!-- Certificates Section -->
+            <div class="section-header">Certificates</div>
+            <textarea id="certificates" name="certificates" placeholder="List your certificates here..."></textarea>
+
+            <!-- Submit Button -->
+            <button type="submit">Generate CV</button>
+        </form>
+    </div>
 </body>
 </html>

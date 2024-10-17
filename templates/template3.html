@@ -2,9 +2,127 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template 3 - Tech & Futuristic</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to right, #004d40, #00796b);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        .cv-container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #00332a;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            border-left: 8px solid #00bcd4;
+        }
+        .cv-header {
+            display: flex;
+            align-items: center;
+            border-bottom: 4px solid #00bcd4;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .cv-header h1 {
+            margin: 0;
+            font-size: 40px;
+            color: #00bcd4;
+        }
+        .cv-header p {
+            margin: 5px 0;
+            font-size: 18px;
+            color: #cfd8dc;
+        }
+        .cv-photo {
+            flex-shrink: 0;
+            margin-right: 20px;
+        }
+        .cv-photo img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 6px solid #00bcd4;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+        .cv-body {
+            padding: 20px 0;
+        }
+        .cv-section {
+            margin-bottom: 30px;
+        }
+        .cv-section h2 {
+            font-size: 32px;
+            color: #00bcd4;
+            border-bottom: 3px solid #00bcd4;
+            padding-bottom: 12px;
+            margin-bottom: 18px;
+        }
+        .cv-section p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 14px 28px;
+            color: #00332a;
+            background-color: #00bcd4;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        a:hover {
+            background-color: #0097a7;
+            transform: translateY(-2px);
+        }
+    </style>
 </head>
 <body>
-
+    <div class="cv-container">
+        <div class="cv-header">
+            <div class="cv-photo">
+                <img src="{{ url_for('static', filename='uploads/' ~ user.photo_url) }}" alt="Profile Photo">
+            </div>
+            <div>
+                <h1>{{ user.name }}</h1>
+                <p>{{ user.email }} | {{ user.phone }}</p>
+            </div>
+        </div>
+        <div class="cv-body">
+            <div class="cv-section">
+                <h2>Summary</h2>
+                <p>{{ user.summary }}</p>
+            </div>
+            <div class="cv-section">
+                <h2>Skills</h2>
+                <p>{{ user.skills }}</p>
+            </div>
+            <div class="cv-section">
+                <h2>Experience</h2>
+                <p>{{ user.experience }}</p>
+            </div>
+            <div class="cv-section">
+                <h2>Education</h2>
+                <p>{{ user.education }}</p>
+            </div>
+            <div class="cv-section">
+                <h2>Projects</h2>
+                <p>{{ user.projects }}</p>
+            </div>
+            <div class="cv-section">
+                <h2>Certificates</h2>
+                <p>{{ user.certificates }}</p>
+            </div>
+        </div>
+        <a href="{{ url_for('download_pdf', template_id=3, user_id=user.id) }}">Download PDF</a>
+    </div>
 </body>
 </html>

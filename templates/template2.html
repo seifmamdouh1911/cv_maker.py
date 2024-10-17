@@ -1,10 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template 2 - Dynamic & Contemporary</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1e1e1e 0%, #333333 100%);
+            margin: 0;
+            padding: 0;
+            color: #e0e0e0;
+        }
+        .cv-container {
+            max-width: 950px;
+            margin: 50px auto;
+            padding: 30px;
+            background: #2a2a2a;
+            border-radius: 12px;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+            position: relative;
+            border: 2px solid #ff6f61;
+        }
+        .cv-header {
+            display: flex;
+            align-items: center;
+            border-bottom: 3px solid #ff6f61;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            background: linear-gradient(90deg, #ff6f61 50%, #fc8c5c 50%);
+            color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+        .cv-header h1 {
+            margin: 0;
+            font-size: 40px;
+            font-weight: bold;
+        }
+        .cv-header p {
+            margin: 5px 0;
+            font-size: 20px;
+        }
+        .cv-photo {
+            flex-shrink: 0;
+            margin-right: 20px;
+        }
+        .cv-photo img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 6px solid #ff6f61;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+        .cv-body {
+            padding: 20px 0;
+        }
+        .cv-section {
+            margin-bottom: 30px;
+            border-left: 5px solid #ff6f61;
+            padding-left: 20px;
+            background: #333333;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .cv-section h2 {
+            font-size: 32px;
+            color: #ff6f61;
+            border-bottom: 2px solid #ff6f61;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        .cv-section p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #e0e0e0;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 14px 28px;
+            color: #ffffff;
+            background-color: #ff6f61;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        a:hover {
+            background-color: #e55e50;
+            transform: translateY(-2px);
+        }
+    </style>
 </head>
 <body>
-$END$
+    <div class="cv-container">
+        <div class="cv-header">
+            <div class="cv-photo">
+                <img src="{{ url_for('static', filename='uploads/' ~ user.photo_url) }}" alt="Profile Photo">
+            </div>
+            <div>
+                <h1>{{ user.name }}</h1>
+                <p>{{ user.email }} | {{ user.phone }}</p>
+            </div>
+        </div>
+        <div class="cv-body">
+            <div class="cv-section">
+                <h2>Summary</h2>
+                <p>{{ user.summary }}</p>
+            </div>
+            <div class="cv-section">
+                <h2>Skills</h2>
+                <p>{{ user.skills }}</p>
+            </div>
+            <div class="cv-section">
+                <h2>Experience</h2>
+                <p>{{ user.experience }}</p>
+            </div>
+            <div class="cv-section">
+                <h2>Education</h2>
+                <p>{{ user.education }}</p>
+            </div>
+            <div class="cv-section">
+                <h2>Projects</h2>
+                <p>{{ user.projects }}</p>
+            </div>
+            <div class="cv-section">
+                <h2>Certificates</h2>
+                <p>{{ user.certificates }}</p>
+            </div>
+        </div>
+        <a href="{{ url_for('download_pdf', template_id=2, user_id=user.id) }}">Download PDF</a>
+    </div>
 </body>
 </html>

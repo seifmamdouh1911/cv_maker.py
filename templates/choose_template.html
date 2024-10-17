@@ -1,10 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Your CV Template</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #a2c2e1, #e0f7fa);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            font-weight: 600;
+        }
+        .template-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+        .template-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        .template-info {
+            padding: 20px;
+        }
+        .template-info h2 {
+            margin: 0;
+            color: #007BFF;
+            font-size: 28px;
+            font-weight: 700;
+        }
+        .template-info p {
+            margin: 10px 0;
+            color: #666;
+            font-size: 16px;
+        }
+        .template-info a {
+            display: inline-block;
+            padding: 12px 25px;
+            font-size: 16px;
+            color: #ffffff;
+            background-color: #007BFF;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .template-info a:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+    </style>
 </head>
 <body>
-$END$
+    <div class="container">
+        <h1>Choose a CV Template</h1>
+        <div class="template-card">
+            <div class="template-info">
+                <h2>Template 1</h2>
+                <p>A modern and professional design ideal for corporate roles.</p>
+                <a href="{{ url_for('view_template', template_id=1, user_id=user_id) }}">Select Template 1</a>
+            </div>
+        </div>
+        <div class="template-card">
+            <div class="template-info">
+                <h2>Template 2</h2>
+                <p>A sleek and stylish template perfect for creative professions.</p>
+                <a href="{{ url_for('view_template', template_id=2, user_id=user_id) }}">Select Template 2</a>
+            </div>
+        </div>
+        <div class="template-card">
+            <div class="template-info">
+                <h2>Template 3</h2>
+                <p>An elegant and classic design suitable for traditional fields.</p>
+                <a href="{{ url_for('view_template', template_id=3, user_id=user_id) }}">Select Template 3</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
